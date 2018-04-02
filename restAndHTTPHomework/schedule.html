@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Schedule</title>
+    <style>
+        #schedule { text-align: center; width: 400px; }
+        input { width: 120px; }
+        #info { background-color:aquamarine; border:1px solid black; margin:0.25em; }
+        .info { font-size: 1.5em; padding: 0.25em; }
+    </style>
+    <script src="jQuery.js"></script>
+</head>
+<body>
+<div id="schedule">
+    <div id="info"><span class="info">Not Connected</span></div>
+    <div id="controls">
+        <input id="depart" value="Depart" type="button" onclick="result.depart()">
+        <input id="arrive" value="Arrive" type="button" onclick="result.arrive()" disabled="true">
+    </div>
+</div>
+<script>
+    function solve() {
+        let departBtn = $('#depart');
+        let arriveBtn = $('#arrive');
+        let info = $('.info');
+        let id;
+        let currentObj;
+
+        function depart() {
+            if (info.text() === 'Not Connected') {
+                id = 'depot';
+            }
+            $.ajax({
+                method: 'GET',
+                url: `https://judgetests.firebaseio.com/schedule/${id}.json`
+            }).then(updateInfoDepart).catch(handleError);
+
+            function updateInfoDepart(res) {
+                info.text(`Next stop ${res.name}`);
+                currentObj = res;
+                departBtn.attr('disabled', true);
+                arriveBtn.attr('disabled', false);
+            }
+        }
+
+        function arrive() {
+            departBtn.attr('disabled', false);
+            arriveBtn.attr('disabled', true);
+            id = currentObj.next;
+            info.text(`Arriving at ${currentObj.name}`);
+        }
+
+        function handleError(err) {
+            info.text('Error');
+            arriveBtn.attr('disabled', true);
+            departBtn.attr('disabled', true);
+        }
+
+        return {
+            depart,
+            arrive
+        };
+    }
+    let result = solve();
+</script>
+</body>
+</html>
