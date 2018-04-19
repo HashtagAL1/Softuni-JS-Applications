@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Http Status Cats</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="jQuery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="catSeeder.js"></script>
+    <script src="template.js"></script>
+</head>
+<body>
+<div id="allCats"></div>
+<script type="text/x-handlebars-template" id="cat-template">
+
+    {{#each cats}}
+        <div class="card col-md-4">
+            <img class="card-img-center" src="{{imageLocation}}" width="250" height="250" alt="Card image cap">
+            <div class="card-block">
+                <button class="btn btn-primary">Show status code</button>
+                <div style="display: none" id="{{id}}">
+                    <h4 class="card-title">Status Code: {{statusCode}}</h4>
+                    <p class="card-text">{{statusMessage}}</p>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+
+
+</script>
+<script src="template.js"></script>
+</body>
+</html>

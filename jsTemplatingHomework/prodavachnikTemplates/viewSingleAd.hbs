@@ -1,0 +1,19 @@
+<section id="viewSingleAd">
+    <div id="adInfo">
+        <div id="adImage">
+            {{#if image}}
+                <img src="{{image}}"/>
+            {{else}}
+                <h4><i>No Image Added</i></h4>
+            {{/if}}
+        </div>
+        <span>Title:</span>
+        <h2 id="adTitle">{{title}}</h2>
+        <span>Description:</span>
+        <div id="adDescription">{{description}}</div>
+        <span>Publisher:</span>
+        <div id="adPublisher">{{publisher}}</div>
+        <span>Date:</span>
+        <div id="adDatePublished">{{datePublished}}</div>
+    </div>
+</section>

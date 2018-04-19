@@ -1,0 +1,15 @@
+<div class="submitArea formContainer">
+    <form action="#/edit/post/{{postId}}" method="POST" id="editPostForm" class="submitForm">
+        <label>Link URL:</label>
+        <input name="url" type="text"
+               value="{{post.url}}">
+        <label>Link Title:</label>
+        <input name="title" type="text" value="{{post.title}}">
+        <label>Link Thumbnail Image (optional):</label>
+        <input name="image" type="text"
+               value="{{post.imageUrl}}">
+        <label>Comment (optional):</label>
+        <textarea name="description">{{post.description}}</textarea>
+        <input id="btnEditPost" type="submit" value="Edit Post">
+    </form>
+</div>

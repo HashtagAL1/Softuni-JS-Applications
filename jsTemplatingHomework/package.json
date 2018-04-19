@@ -1,0 +1,20 @@
+{
+  "name": "jstemplatinghomework",
+  "version": "1.0.0",
+  "description": "handlebars homework",
+  "main": "catSeeder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "templating",
+    "handlebars",
+    "js"
+  ],
+  "author": "Anastas Laskov",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "handlebars": "^4.0.11"
+  }
+}
