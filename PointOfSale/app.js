@@ -14,6 +14,8 @@ $(() => {
                 return;
             }
             if (username.length < 5) {
+                let article = 5;
+                console.log(article);
                 notify.showError('Username must be at least 5 characters long.');
                 return;
             }
